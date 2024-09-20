@@ -35,6 +35,57 @@ function countDigits(s){
 
 console.log(countDigits(4346));
 
+// check the Palindrom 
+
+function checkPalindrome(num){
+    let numstr = num.toString();                    // Convert the number to a string
+    let result = numstr.split('').reverse().join('');
+    return numstr===result;
+}
+
+console.log(checkPalindrome("racecar"));
+console.log(checkPalindrome(4345));
+
+
+//second method 
+
+function isPalindromeNumber(num) {
+    const str = num.toString();
+    let reversedStr = '';
+    
+    // Manually reverse the string using a for loop
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversedStr += str[i];
+       
+    }
+    // Compare the original string with the reversed string
+    return str === reversedStr;
+}
+console.log(isPalindromeNumber(12321));
+
+//Fibonnachi Number :- 
+
+function fibonacci(num) {
+    let num1 = 0;
+    let num2 = 1;
+    let sum;
+    if (num === 1) {
+        return num1;
+    } else if (num === 2) {
+        return num2;
+    } else {
+        for (let i = 3; i <= num; i++) {
+            sum = num1 + num2;
+            num1 = num2;
+            num2 = sum;
+        }
+        return num2;
+    }
+}
+
+console.log("Fibonacci(5): " + fibonacci(5));
+
+
 
 
 
