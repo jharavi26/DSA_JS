@@ -85,6 +85,41 @@ function fibonacci(num) {
 
 console.log("Fibonacci(5): " + fibonacci(5));
 
+//Factorial of The Number 
+
+function factorial(num){
+  let res=1;
+  if(num===0)
+    return 1;
+  for(let i=2; i<=num; i++){
+    res = res*i;
+  }
+  return res;
+  }
+
+console.log(factorial(6));   //720
+
+//Prime Number 
+function CheckPrime(n){
+  let i, flag = true;
+  for(i=2; i<=n-1; i++)
+  {
+    if(n % i==0){
+      flag=false;
+      break;
+    }
+   }
+  if(flag==true)
+  {
+    console.log(n + " Number is Prime");
+    return;
+  }
+  else{
+    console.log(n + " Number is not Prime");
+  }
+ }
+CheckPrime(4);
+
 
 
 
