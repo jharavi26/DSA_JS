@@ -5,7 +5,7 @@ console.log(fruits);
 fruits.unshift("Pineapple");   // Adds Pineapple to the beginning
 console.log(fruits);
 
-console.log(fruits.length);
+console.log(fruits.length);        //Find out length of Array
 
 for(let i=0;i<fruits.length; i++){    // iterate using Loop 
     console.log(fruits[i]);
