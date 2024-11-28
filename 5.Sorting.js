@@ -77,3 +77,5 @@ function BubbleSortDes(arr){
 }
 
 console.log(BubbleSortDes([10,40,20,50,7]));
+
+//Inseration Sort :-
