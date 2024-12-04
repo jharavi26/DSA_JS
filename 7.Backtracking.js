@@ -20,3 +20,29 @@ function permute(str, path = "", results = []) {
 // Example usage:
 const input = "abc";
 console.log(permute(input)); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+
+//Find the all the Subset
+
+function subsets(nums) {
+  const result = [];
+
+  function backtrack(start, path) {
+      result.push([...path]); // Add the current subset (path) to result
+
+      for (let i = start; i < nums.length; i++) {
+          path.push(nums[i]); // Include nums[i] in the subset
+          backtrack(i + 1, path); // Explore the next numbers
+          path.pop(); // Backtrack (remove nums[i])
+      }
+  }
+
+  backtrack(0, []);
+  return result;
+}
+
+// Example usage
+console.log(subsets([1, 2, 3]));
+
+
+
+
