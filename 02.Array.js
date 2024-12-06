@@ -1,22 +1,72 @@
-let fruits = ['apple', 'mango', 'banana'];
-fruits.push("cherry");     //Adds Cherry to the end
-console.log(fruits);
+ //Find the Largest Element in Array :-
 
-fruits.unshift("Pineapple");   // Adds Pineapple to the beginning
-console.log(fruits);
+function LargestElement(arr){
+    let largest = arr[0];
+    for(i=0; i<=arr.length-1; i++){
+        if(arr[i]>largest){
+            largest = arr[i]
+        }
+    }
+    return largest;
+}
+console.log(LargestElement([3,4,1,8,2]));
 
-console.log(fruits.length);        //Find out length of Array
+//Find the Second Larger Element 
 
-for(let i=0;i<fruits.length; i++){    // iterate using Loop 
-    console.log(fruits[i]);
+function SecondLarEle(arr){
+    if(arr.length<2){
+        return null;
+    }
+    let larger = -Infinity;
+    let secondLarger = -Infinity;
+
+    for(i=0; i<=arr.length-1; i++)
+    {
+        if(arr[i]>larger){
+            secondLarger =larger;
+            larger=arr[i];
+        }
+        else if (arr[i]>secondLarger && arr[i] !== larger)
+        {
+            secondLarger = arr[i];
+        }
+    }
+    if(secondLarger == -Infinity){
+        return null;
+    }
+    return secondLarger;
 }
 
-fruits.forEach((fruits, index) =>{
-    console.log(`fruits at index ${index} is ${fruits}`);  // forEach Method used to execute a provided function once for every element.
-});
+const Arr = [9,7,4,5,6];
+console.log(SecondLarEle(Arr));   // Time Complexity O(n)
 
-let moreFruits = ['Graphs','watermelon'];
-let allFruits = fruits.concat(moreFruits);  //using concat method 
-console.log(allFruits) 
+//Check The Array is Sorted 
+
+function CheckArray(arr){
+    if(arr.length<=1){
+        return null;
+    }
+
+  let isAscending = true;
+  let isDescending = true;
+
+    // Check the sorting order
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
+          isAscending = false; // Not sorted in ascending order
+        }
+        if (arr[i] < arr[i + 1]) {
+          isDescending = false; // Not sorted in descending order
+        }
+      }
+    
+      // Return true if sorted in either ascending or descending order
+      return isAscending || isDescending;
+    }
+
+console.log(CheckArray([1,2,3,4,5]));
+
+
+
 
 
