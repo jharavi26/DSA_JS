@@ -64,7 +64,115 @@ function CheckArray(arr){
       return isAscending || isDescending;
     }
 
-console.log(CheckArray([1,2,3,4,5]));
+console.log(CheckArray([1,2,3,4,5]));  // O(n)
+
+//Remove Duplicate Element from Array 
+
+let arr = [1, 2, 2, 3, 4, 4, 5];
+let uniqueArr = [];
+
+for (let i = 0; i < arr.length; i++) {
+    if (!uniqueArr.includes(arr[i])) {
+        uniqueArr.push(arr[i]);
+    }
+}
+
+console.log(uniqueArr); // Output: [1, 2, 3, 3, 1, 2, 4, 5]
+
+//Left the Rotata Array by One
+
+function RotateArray(array){
+    const firstElement = array[0]; // Store the first element
+    for (let i = 1; i < array.length; i++) {
+        array[i - 1] = array[i]; // Shift elements to the left
+    }
+    array[array.length - 1] = firstElement;
+
+    return array;
+
+}
+const array =[1,2,3,4,5] ;
+console.log(RotateArray(array));
+
+function leftRotateByOne(arr) {
+    if (arr.length === 0) return arr; // Handle empty array
+    const firstElement = arr.shift(); // Remove the first element
+    arr.push(firstElement); // Add the first element to the end
+    return arr;
+}
+
+//Left Rotate the array by N place 
+
+function MoveZero(arr){
+    let NonzeroIndex =0;
+    for(i=0; i<arr.length; i++){
+    if(arr[i]!==0){
+        arr [NonzeroIndex]=arr[i];
+        NonzeroIndex++;
+    }
+}
+    for(i=NonzeroIndex; i<=arr.length-1; i++){
+        arr[i]=0
+    }
+        return arr;
+}
+console.log(MoveZero([1,0,2,0,3,4]));
+
+//Linear Search 
+
+function Search(arr, n){
+    for(i=0;i<arr.length;i++){
+        if(arr[i]==n){
+            return arr[i];
+        }
+    }
+    return -1;
+}
+
+console.log(Search([1,2,3,4,5,6],1));
+
+//Union of the Two Array
+
+function Union(arr1, arr2){
+    let result = []
+    {
+        for(i=0; i<=arr1.length-1; i++){
+            if (!result.includes(arr1[i])) {
+                result.push(arr1[i]);
+            }
+        }
+        for(i=0; i<=arr2.length-1; i++){
+            if (!result.includes(arr2[i])) {
+                result.push(arr2[i]);
+            }
+        }
+        return result;
+
+    }
+}
+console.log(Union([1,2,3,4,5], [2,4,5,6,7,8]));
+
+//Find Missing Number in Array
+
+function MissingNumber(arr){
+    let n = arr.length+1;
+    let actualSum =0;
+    let expectedSum = (n*(n+1))/2;
+
+    for(i=0; i<arr.length; i++)
+    {
+        actualSum += arr[i]; 
+    }
+
+    let Number = expectedSum - actualSum; 
+
+    return Number;
+}
+console.log(MissingNumber([1,2,3,4,6,7]));
+
+
+
+
 
 
 
