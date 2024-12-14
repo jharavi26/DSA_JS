@@ -170,11 +170,48 @@ function MissingNumber(arr){
 }
 console.log(MissingNumber([1,2,3,4,6,7]));
 
+//Maximum Consecutive Ones
 
+function Count(arr){
+    let count = 0;
+    let MaxCount = 0;
+    if(arr.length<=1){
+        return arr;
+    }
+   
+    for(i=0; i<=arr.length-1; i++){
+        if(arr[i] == 1){
+            count ++
+        }
+        else 
+        {
+            MaxCount = Math.max(MaxCount, count);
+            count = 0;
+        }
+    }
+    MaxCount = Math.max(MaxCount, count);
+    
+    return MaxCount;
 
+}
+console.log(Count([1,1,1,5,6,0,1,1,1,1]));
 
+//Longest subarray by given sum value K
 
+function LongestSubArray(arr, k){
+    let start = 0, currentCount=0, maximumCount=0, end;
+    for(end=0; end<arr.length; end++){
+        currentCount +=arr[end]
+    
+        while(currentCount>k && start<=end){
+            currentCount -=arr[start];
+            start++
+        }
+        if(currentCount === k ){
+            maximumCount = Math.max(maximumCount, end-start+1)
+        }
+    }
+    return maximumCount;
+} 
 
-
-
-
+console.log(LongestSubArray([1,2,3,4,5], 9));
