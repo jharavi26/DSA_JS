@@ -67,4 +67,34 @@ function sortArray(arr){
 
   console.log(FindMajorElement([3, 3, 4, 2, 4, 4, 2, 4, 4]));
 
-  //
+  //Kadane's Maximum Subarray Algorithm 
+
+  function kadaneMax(num){
+    let MaxSum = Number.MIN_SAFE_INTEGER;
+    let currentSum=0;
+    let start, end, temporary = 0;
+    for(let i=0; i<num.length; i++)
+    {
+      currentSum += num[i];
+
+    if(currentSum>MaxSum){
+      MaxSum = currentSum;
+      start = temporary;
+      end=i;
+    }
+
+    if(currentSum<0)
+    {
+        currentSum = 0;
+        temporary = i+1;
+    }
+    
+    }
+
+    console.log("MaxSum sum is ",MaxSum);
+    console.log(`Subarray: [${num.slice(start, end + 1).join(", ")}]`);
+    return MaxSum;
+  }
+
+    const num = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+    kadaneMax(num);
