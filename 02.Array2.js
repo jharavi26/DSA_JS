@@ -46,4 +46,25 @@ function sortArray(arr){
   }
   console.log(sortArray([0, 1, 2, 0, 1, 2]));
 
+  //Majourity of Element :-
+
+  function FindMajorElement(num){
+    const Frequency = {};
+    const MajorElement = Math.floor(num.length/2);
+
+    for(let i=0; i<num.length;i++){
+      const nums = num[i];
+    Frequency[nums] = (Frequency[nums] || 0)+1; 
+
+    if(Frequency[nums]>MajorElement){
+      return nums;
+    }
+   
+
+    }
+    return -1;
+  }
+
+  console.log(FindMajorElement([3, 3, 4, 2, 4, 4, 2, 4, 4]));
+
   //
