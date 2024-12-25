@@ -98,3 +98,26 @@ function sortArray(arr){
 
     const num = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
     kadaneMax(num);
+
+    //Buy & Sell 
+    
+    function MaxProfit(price){
+      let minprice = Number.MAX_SAFE_INTEGER;
+      let MaxProfit = 0;
+
+      for(i=0; i<price.length; i++){
+        if(price[i]<minprice){
+          minprice = price[i];
+        }
+    const profit = price[i] - minprice;
+    
+    if(profit > MaxProfit)
+    {
+      MaxProfit = profit;
+  }
+}
+return MaxProfit;
+ }
+
+ const price = [7,1,5,4,6,3];
+ console.log(`Maxprofit is : `, MaxProfit(price));
