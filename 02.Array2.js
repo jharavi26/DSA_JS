@@ -121,3 +121,31 @@ return MaxProfit;
 
  const price = [7,1,5,4,6,3];
  console.log(`Maxprofit is : `, MaxProfit(price));
+
+ //Count Subarray in Array 
+
+ function countSubarraysWithSumK(nums, k) {
+  let prefixSumFreq = new Map();
+  prefixSumFreq.set(0, 1); // Handle cases where prefix sum itself equals K
+  let currentSum = 0;
+  let count = 0;
+
+  for (let num of nums) {
+      currentSum += num;
+
+      // Check if (currentSum - k) exists in prefixSumFreq
+      if (prefixSumFreq.has(currentSum - k)) {
+          count += prefixSumFreq.get(currentSum - k);
+      }
+
+      // Update the prefix sum frequency in the map
+      prefixSumFreq.set(currentSum, (prefixSumFreq.get(currentSum) || 0) + 1);
+  }
+
+  return count;
+}
+
+// Example usage
+const nums = [1, 2, 3];
+const k = 3;
+console.log(countSubarraysWithSumK(nums, k)); // Output: 2 ([1,2] and [3])
