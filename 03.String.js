@@ -15,4 +15,30 @@ function isPalindrome(str) {
 
 // Example
 console.log(isPalindrome("racecar"));
-console.log(isPalindrome("abc"));   
+console.log(isPalindrome("abc")); 
+
+// Remove outermost Paranthesis in string:-
+
+function removeOuterParentheses(s) {
+  let result = '';
+  let depth = 0;
+
+  for (let char of s) {
+    if (char === '(') {
+      if (depth > 0) result += char; // Add to result only if not the outermost '('
+      depth++;
+    } else if (char === ')') {
+      depth--;
+      if (depth > 0) result += char; // Add to result only if not the outermost ')'
+    }
+  }
+
+  return result;
+}
+
+// Example
+console.log(removeOuterParentheses("(()())(())")); 
+console.log(removeOuterParentheses("(()())(())(()(()))"));
+console.log(removeOuterParentheses("()()"));
+
+
