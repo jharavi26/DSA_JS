@@ -99,7 +99,7 @@ function sortArray(arr){
     const num = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
     kadaneMax(num);
 
-    //Buy & Sell 
+    //Buy & Sell :-It involves finding the maximum profit you can achieve from buying and selling a stock given its price over a series of days.
     
     function MaxProfit(price){
       let minprice = Number.MAX_SAFE_INTEGER;
