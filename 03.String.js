@@ -68,3 +68,25 @@ function First(str){
 return null;
 }
 console.log(First("raviraj"));
+
+//Anagram In String :-
+
+function Anagram(art1, art2){
+  if(art1.length !== art2.length) return false;
+
+  let occur = {};
+  for(let i=0; i<=art1.length; i++){
+    let char = art1[i];
+    occur[char] = (occur[char]||0)+1;
+  }
+
+  for(let i=0; i<art2.length; i++){
+    let char = art2[i];
+    if(!occur[char]){
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(Anagram("art","tra"))
