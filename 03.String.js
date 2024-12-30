@@ -1,44 +1,22 @@
-function isPalindrome(str) {
-  let left = 0;
-  let right = str.length - 1;
+//Reverse a String :-
 
-  while (left < right) {
-    if (str[left] !== str[right]) {
-      return false;
-    }
-    left++;
-    right--;
+function reversedString(str){
+  let result = "";
+  for(let i=str.length-1; i>=0; i--)
+  {
+    result += str[i];
   }
-
-  return true;
-}
-
-// Example
-console.log(isPalindrome("racecar"));
-console.log(isPalindrome("abc")); 
-
-// Remove outermost Paranthesis in string:-
-
-function removeOuterParentheses(s) {
-  let result = '';
-  let depth = 0;
-
-  for (let char of s) {
-    if (char === '(') {
-      if (depth > 0) result += char; // Add to result only if not the outermost '('
-      depth++;
-    } else if (char === ')') {
-      depth--;
-      if (depth > 0) result += char; // Add to result only if not the outermost ')'
-    }
-  }
-
   return result;
 }
+console.log(reversedString("Art"))
 
-// Example
-console.log(removeOuterParentheses("(()())(())")); 
-console.log(removeOuterParentheses("(()())(())(()(()))"));
-console.log(removeOuterParentheses("()()"));
+//using Recursion 
+function reverseString(str) {
+  if (str === '') {
+    return str;
+  } else {
+    return reverseString(str.substr(1)) + str[0];
+  }
+}
 
-
+console.log(reverseString("hello"));
