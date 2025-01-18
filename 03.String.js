@@ -160,5 +160,22 @@ function buzz(str){
     return compressed.length < str.length ? compressed : str;
 
   }
-console.log(buzz("arrrrttt"))          
+console.log(buzz("arrrrttt"))  
+
+//Rotation of string 
+
+function rot(art1, art2){
+  if(art1.length !== art2.length){
+    return false;
+  }
+
+   const concatned = art1+art1;
+   
+   return concatned.includes(art2)
+
+}
+
+console.log(rot("hello", "llohe"))
+
+
 
