@@ -1,3 +1,16 @@
+// Find the Index of the First Occurrence in a String
+// Reverse String
+// Valid Anagram
+// Longest Common Prefix
+// Merge Strings Alternately
+// Length of Last Word
+// Valid Palindrome
+// String Compression
+// Reverse Words in a String
+// Reverse Vowels of a String
+// Rotate String
+
+
 //Reverse a String :-
 
 function reversedString(str){
