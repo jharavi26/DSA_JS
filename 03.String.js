@@ -1,15 +1,3 @@
-// Find the Index of the First Occurrence in a String
-// Reverse String
-// Valid Anagram
-// Longest Common Prefix
-// Merge Strings Alternately
-// Length of Last Word
-// Valid Palindrome
-// String Compression
-// Reverse Words in a String
-// Reverse Vowels of a String
-// Rotate String
-
 
 //Reverse a String :-
 
@@ -57,7 +45,7 @@ function Palindome(str, left=0, right=str.length-1){
   if(left>=right){
     return true;
   }
-if(str[left].toLowerCase !== str[right].toLowerCase){
+if(str[left].toLowerCase() !== str[right].toLowerCase()){
   return false;
 }
 return Palindome(str, left+1, right-1)
@@ -103,3 +91,74 @@ function Anagram(art1, art2){
 }
 
 console.log(Anagram("art","tra"))
+
+//Length of last Word 
+
+function findLastIndex(str){
+  let length = 0;
+  let i = str.length-1
+
+  while(i>=0 && str[i] ===" "){
+    i--
+  }
+  while(i>=0 && str[i] !==" ")
+  {
+    length++
+    i--;
+    
+  }
+  return length;
+}
+console.log(findLastIndex("Art is my Favourite"))   //9
+
+function string(str){
+  let r = str.trim()
+
+  let s = r.split(" ");
+
+  return s = s[s.length-1].length
+}
+console.log(string("Good morning art"))   //3
+
+//- Count and remove duplicate characters from a string.
+
+function last(str){
+  let CountChar = {};
+  let result = [];
+
+  for(const char of str){
+    CountChar[char] = (CountChar[char] || 0)+1;
+  }
+
+  for(const char of str){
+    if(CountChar[char] === 1)
+    {
+      result += char;
+    }
+  }
+  return {count : CountChar , result}
+}
+
+console.log(last("artjha"))
+
+// Implement string compression (e.g., 'aabbcc' to 'a2b2c2').
+
+function buzz(str){
+  let count = 1;
+  let compressed = ""
+
+  for(let i =0; i<str.length; i++){
+    if(str[i+1]==str[i]){
+      count++
+    }
+      else 
+      {
+        compressed += str[i] + (count > 1 ? count : "" ) 
+        count = 1 ;
+      }
+    }
+    return compressed.length < str.length ? compressed : str;
+
+  }
+console.log(buzz("arrrrttt"))          
+
