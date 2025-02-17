@@ -120,6 +120,22 @@ function CheckPrime(n){
  }
 CheckPrime(4);
 
+// Missing Number is 
+
+function Missing (arr){
+  let sum = 0;
+  let n = arr.length+1;
+  let actualSum = n*(n+1)/2;
+  for(let i = 0; i<arr.length ; i++)
+  {
+  sum += arr[i]
+  }
+
+  return actualSum-sum;
+}
+
+console.log(Missing([1,2,4,5]))
+
 
 
 

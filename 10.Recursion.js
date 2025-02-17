@@ -42,19 +42,28 @@ display(10,1);
 
 //Sum of First Number
 
-function Sum(i, n, total=0){
-  if(i>n)
-  {
-    console.log(total);
-    return;
-  }
-  total = total+i;
-  Sum(i+1,n,total)
+function sum(n){
+  if(n<=1) return 1;
+  return n + sum(n-1);
+  } 
 
-}
-Sum(1,7);
+  console.log(sum(5));
 
 //Factorial of Number using Recursion 
+
+function factorial (n){
+  if(n<=1) return n;
+  let fact = 1;
+  for(let i =1; i<=n; i++)
+  {
+    fact *= i;
+
+  }
+  return fact;
+}
+
+console.log(factorial(5));
+
 
 function Factorial(n){
    if(n==0 || n==1){
@@ -64,6 +73,16 @@ function Factorial(n){
    return n*Factorial(n-1);
 }
 console.log(Factorial(6));
+
+//Power of N 
+
+function power(x,n){
+  if(n===0) return 1;
+
+  return x * power(x , n-1);
+}
+
+console.log(power(4,3))
 
 // Reverse Array using Recursive 
 
@@ -104,5 +123,15 @@ function fibonacci(n) {
 
 // Example usage
 console.log(fibonacci(6)); // Output 8
+
+//Count the number 
+
+function count(n){
+  if(n<10) return 1;
+  return 1 + count(Math.floor(n/10))
+  
+  } 
+  
+  console.log(count(3456))
 
 
