@@ -77,16 +77,23 @@ console.log(CheckArray([1,2,3,4,5]));  // O(n)
 
 //Remove Duplicate Element from Array 
 
-let arr = [1, 2, 2, 3, 4, 4, 5];
-let uniqueArr = [];
-
-for (let i = 0; i < arr.length; i++) {
-    if (!uniqueArr.includes(arr[i])) {
-        uniqueArr.push(arr[i]);
+function reverse (arr){
+    const obj = {};
+    const result  = []
+    for(let i =0; i<arr.length; i++)
+    {
+      if(!obj[arr[i]])
+      {
+      obj[arr[i]] = true;
+    result.push(arr[i])
+      }
+  
+  
     }
-}
-
-console.log(uniqueArr); // Output: [1, 2, 3, 3, 1, 2, 4, 5]
+    return result;
+  
+  }
+  console.log(reverse([1,2,3,4,5,3,4,5,]));  // [1,2,3,4,5]
 
 //Left the Rotata Array by One
 
