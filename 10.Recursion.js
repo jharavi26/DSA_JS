@@ -8,7 +8,6 @@ function displayNumber(n){
   if(n>10){                          //Base Case
   return;
   }
-
   console.log(n);
   displayNumber(n+1);              //Recursive Case 
   
@@ -74,6 +73,29 @@ function Factorial(n){
 }
 console.log(Factorial(6));
 
+//Sum of Digits 
+
+function factorial(n) {
+  if(n==0) return 0 ;
+  return (n%10) + factorial(Math.floor(n/10))
+
+}
+
+console.log(factorial(354)); //12
+
+
+//Count the number 
+
+function count(n){
+  if(n<10) return 1;
+  return 1 + count(Math.floor(n/10))
+  
+  } 
+  
+  console.log(count(3456))
+
+
+
 //Power of N 
 
 function power(x,n){
@@ -124,14 +146,6 @@ function fibonacci(n) {
 // Example usage
 console.log(fibonacci(6)); // Output 8
 
-//Count the number 
 
-function count(n){
-  if(n<10) return 1;
-  return 1 + count(Math.floor(n/10))
-  
-  } 
-  
-  console.log(count(3456))
 
 

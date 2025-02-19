@@ -1,11 +1,4 @@
-// Two Sum
-// Majority Element
-// Remove Duplicates from sorted array
-// Squares of a Sorted Array
-// Find Pivot Index
-// Move Zeroes
-// Remove Element
-// Max Consecutive Ones
+
  
  //Find the Largest Element in Array :-
 
