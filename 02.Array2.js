@@ -1,4 +1,4 @@
-// 2 Sum Problem 
+
 
 function twoSum(arr, target) {
   const hashMap = new Map(); // To store numbers and their indices
