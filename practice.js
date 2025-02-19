@@ -1,30 +1,18 @@
-function Zero(arr1, arr2){
-  let result  = [];
-  let i = 0 , j = 0;
-  while ( i < arr1.length && j < arr2.length)
+function checkArray (arr1, arr2){
+  let count = {}
+  for(let num of arr1)
   {
-    if(arr1[i] < arr2[j])
-    {
-      result.push(arr1[i]);
-      i++
-    }
-    else {
-      result.push(arr2[j]);
-      j++
-    }
+    count[num] = (count[num] || 0)+1;
   }
 
-  while (i < arr1.length){
-    result.push(arr1[i]);
-    i++
+  for(let num of arr2)
+  {
+    if(!count[num]) return false;
+    count[num]--
   }
 
-  while(j < arr2.length){
-    result.push(arr2[j]);
-    j++
-  }
+  return true;
 
-  return result;
 }
 
-console.log(Zero([1,2,3,4], [6,7,8,9,12]));
+console.log(checkArray([1,2,3,4] , [4,3,2,1]))
