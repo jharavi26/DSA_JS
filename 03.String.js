@@ -9,7 +9,7 @@ function reversedString(str){
   }
   return result;
 }
-console.log(reversedString("Art"))
+console.log(reversedString("Art"))   //tra
 
 //using Recursion 
 function reverseString(str) {
@@ -25,12 +25,11 @@ console.log(reverseString("hello"));
 //Palindrome in String 
 
 function Palindrome(str){
-  str = str.replace(/[^a-z0-9]/gi, '').toLowerCase();
-  
+
   let left =0;
   let right = str.length-1;
   while(left<right){
-  if(str[left] !== str[right]){
+  if(str[left].toLowerCase() !== str[right].toLowerCase()){
     return false;
   }
   left++;
@@ -52,45 +51,93 @@ return Palindome(str, left+1, right-1)
 }
 console.log(Palindome("racecar"));
 
-//Frequency of the First non-repeating Character 
+//Count the Number of Vowels
 
-function First(str){
-  let Frequency = {};
-  for(let i=0; i<str.length; i++)
+function check(str)
+{
+  const arr = ["a", "e", "i", "o", "u"];
+  let count = 0
+  for(let i = 0 ; i < str.length; i++)
   {
-    let char = str[i];
-    Frequency[char] = (Frequency[char] ||0)+1;
+    if(arr.includes(str[i])){
+      count++
+    }
+  
   }
-  for(let i=0; i<str.length; i++){
-    if (Frequency[str[i]]===1){
-      return str[i];
+  return count;
+
+}
+
+console.log(check("ravikumarart"));   //5 
+
+// Remove Space Between Number
+
+function space(str){
+  count = ""
+  for(let char of str)
+  {
+    if(char !== " ")
+    {
+      count +=char;
     }
   }
-return null;
+  return count ;
 }
-console.log(First("raviraj"));
+
+console.log(space("eavi art kumr")) //eaviartkumr
+
+
+//Frequency of the First non-repeating Character 
+
+function check(str)
+{
+ const frequency = {}
+  for(let i = 0 ; i < str.length; i++)
+  {
+    let char = str[i];
+    frequency[char] = (frequency[char] || 0)+1; 
+  }
+  for(let char of str){
+    if(frequency[char] === 1)
+    {
+      return char;
+    }
+  }
+  return null;
+  }
+console.log(check("ravikumarart"));  
+
+// Count of frequency of each Character in String
+
+function space(str){
+  count = {}
+  for(let char of str)
+  {
+    count[char] = (count[char]||0)+1
+  }
+  return count ;
+}
+
+console.log(space("ravikumarart")) 
 
 //Anagram In String :-
 
-function Anagram(art1, art2){
-  if(art1.length !== art2.length) return false;
-
-  let occur = {};
-  for(let i=0; i<=art1.length; i++){
-    let char = art1[i];
-    occur[char] = (occur[char]||0)+1;
+function space(str1, str2){
+  if(str1.length !== str2.length) return false;
+  count = {}
+  for(let char of str1)
+  {
+    count[char] = (count[char]||0)+1
   }
-
-  for(let i=0; i<art2.length; i++){
-    let char = art2[i];
-    if(!occur[char]){
-      return false;
-    }
+  for(let char of str2)
+  {
+   if(!count[char]) return false;
+   count[char]--
   }
   return true;
 }
 
-console.log(Anagram("art","tra"))
+console.log(space("ravi" , "ariv")) 
 
 //Length of last Word 
 
@@ -140,42 +187,4 @@ function last(str){
 }
 
 console.log(last("artjha"))
-
-// Implement string compression (e.g., 'aabbcc' to 'a2b2c2').
-
-function buzz(str){
-  let count = 1;
-  let compressed = ""
-
-  for(let i =0; i<str.length; i++){
-    if(str[i+1]==str[i]){
-      count++
-    }
-      else 
-      {
-        compressed += str[i] + (count > 1 ? count : "" ) 
-        count = 1 ;
-      }
-    }
-    return compressed.length < str.length ? compressed : str;
-
-  }
-console.log(buzz("arrrrttt"))  
-
-//Rotation of string 
-
-function rot(art1, art2){
-  if(art1.length !== art2.length){
-    return false;
-  }
-
-   const concatned = art1+art1;
-   
-   return concatned.includes(art2)
-
-}
-
-console.log(rot("hello", "llohe"))
-
-
 

@@ -1,18 +1,18 @@
-function checkArray (arr1, arr2){
-  let count = {}
-  for(let num of arr1)
-  {
-    count[num] = (count[num] || 0)+1;
+function last(str){
+  let CountChar = {};
+  let result = [];
+
+  for(const char of str){
+    CountChar[char] = (CountChar[char] || 0)+1;
   }
 
-  for(let num of arr2)
-  {
-    if(!count[num]) return false;
-    count[num]--
+  for(const char of str){
+    if(CountChar[char] === 1)
+    {
+      result += char;
+    }
   }
-
-  return true;
-
+  return result;
 }
 
-console.log(checkArray([1,2,3,4] , [4,3,2,1]))
+console.log(last("artjha"))
