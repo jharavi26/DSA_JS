@@ -9,6 +9,21 @@ function sum(n) {
 }
 console.log("Sum of the natural numbers up to ", sum(5));
 
+//Reverse of Number
+
+function reverse(n){
+  let sum = 0;
+  while(n>0)
+  {
+    let last = n%10;
+    sum = sum *10 + last;
+    n = Math.floor(n/10);
+  }
+  return sum;
+}
+
+console.log(reverse(431));
+
 // Sum of Digits :-
 
 function sumofDigits(n){
@@ -134,7 +149,27 @@ function Missing (arr){
   return actualSum-sum;
 }
 
-console.log(Missing([1,2,4,5]))
+console.log(Missing([1,2,4,5]));
+
+// find Armstrong Number 
+ 
+function armstrong(n){
+  let num = n.toString().length;
+  let sum = 0 ; 
+  temp = n;
+
+  while(temp>0)
+  {
+    let digit = temp % 10;
+    sum += Math.pow(digit , num)
+    temp = Math.floor(temp/10);
+  }
+
+  return sum === n;
+
+}
+
+console.log(armstrong(153));
 
 
 
