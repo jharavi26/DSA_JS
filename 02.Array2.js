@@ -38,7 +38,6 @@ function sortArray(arr){
     else {
       [arr[mid],arr[high]] = [arr[high],arr[mid]];
       high--;
-
       }
     }
     return arr;
@@ -55,12 +54,10 @@ function sortArray(arr){
     for(let i=0; i<num.length;i++){
       const nums = num[i];
     Frequency[nums] = (Frequency[nums] || 0)+1; 
-
+    }
     if(Frequency[nums]>MajorElement){
       return nums;
-    }
    
-
     }
     return -1;
   }
