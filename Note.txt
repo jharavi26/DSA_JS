@@ -62,7 +62,14 @@ Array :-
 7.Majority Element :
   if occurence of element is greather than the length of array divided by 2.
 
-8. Kadane Algorithm : -
+8. Kadane Algorithm :-
+   initial currentSum, globalSum , in a for loop check current sum  = currentsum+arr[i];
+
+9.Two Sum Problem :-
+  take a map , iterate through loop in array & find out compliment . 
+  check if compliemnt recieve then return .
+
+10.
 
 
 
