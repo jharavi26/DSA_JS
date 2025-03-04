@@ -1,24 +1,19 @@
-function Search(arr , target){
-  let start = 0;
-  let end = arr.length-1
-  
-  while(start <= end)
+function runLength(str){
+  let compressedStr = ""
+  let count = 1;
+  for(let i =0; i<str.length; i++)
   {
-    let mid = Math.floor((start+end)/2);
-    if(arr[mid] == target)
+    if(str[i] == str[i+1])
     {
-      return mid;
+      count++
     }
-    else if(arr[mid] < target)
+    else 
     {
-      start = mid+1
-    }
-    else {
-      end = mid-1
+      compressedStr += str[i] + count;
+      count = 1;
     }
   }
-  
-  return -1;
+return compressedStr
 }
 
-console.log(Search([10,20,30,40,50,60,70], 50));
+console.log(runLength("aaarrrrttttt"))

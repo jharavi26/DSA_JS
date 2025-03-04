@@ -188,3 +188,128 @@ function last(str){
 
 console.log(last("artjha"))
 
+function find(str){
+  let words = str.split(" ");
+  let longerWord = "";
+
+  for(let word  of words)
+  {
+    if(word.length > longerWord.length)
+    {
+      longerWord = word;
+    }
+  }
+  return longerWord;
+}
+
+console.log(find("Javascript is my Favourite Programming Language"))  //Programming
+
+//  Find the Most Frequent Character in a String
+
+function most(str){
+  let frequency = {};
+  let MaxCount = 0;
+  let MaxChar = ""
+
+  for (const count of str)
+  {
+    frequency[count] = (frequency[count] || 0) +1
+  }
+
+  for(const count in frequency)
+  {
+  if(frequency[count] > MaxCount)
+    {
+      MaxChar = count;
+      MaxCount = frequency[count]
+    }
+  }
+
+  return [MaxChar , MaxCount];
+}
+
+console.log(most("Ravi is my friend"))
+
+// find the str contains a number
+
+
+function checkNumber(str){
+  for(let i =0 ; i<str.length ; i++)
+  {
+    let value = str.charCodeAt(i);
+    if(value < 48 || value > 57)
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(checkNumber("34556779"))
+
+// Find All Permutations of a Given String
+
+function permutation(str){
+  if(str.length <=1) return [str];
+
+  const result = []
+
+  for(let i = 0 ; i<str.length ; i++)
+  {
+    let char = str[i];
+    let remaining = str.slice(0, i) + str.slice(i+1);
+
+  let allpermutation = permutation(remaining)
+
+  for(let perm of allpermutation)
+  {
+    result.push(char+perm )
+  }
+  }
+  return result;
+}
+
+console.log(permutation("art"))
+
+// Check if a String is a Rotation of Another String
+
+function find(s1, s2){
+  if(s1.length !== s2.length) return false;
+
+  let double = s1+s1;
+  for(let i = 0 ; i<=double.length -s2.length; i++){
+    let substr = double.substring(i , i+s2.length);
+    if(substr == s2) return true;
+}
+return false;
+
+}
+
+console.log(find("art" ,"tar"))
+
+// Compress a String Using Run-Length Encoding
+
+function runLength(str){
+  let compressedStr = ""
+  let count = 1;
+  for(let i =0; i<str.length; i++)
+  {
+    if(str[i] == str[i+1])
+    {
+      count++
+    }
+    else 
+    {
+      compressedStr += str[i] + count;
+      count = 1;
+    }
+  }
+return compressedStr
+}
+
+console.log(runLength("aaaabbbbbbbbcccrrrtttt"))
+
+
+
+
+
