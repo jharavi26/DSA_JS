@@ -1,0 +1,11 @@
+Big Sisters In My Quarter Have 
+
+Algorithm	                    Best Case	         Average Case	              Worst Case               UseCase 
+
+Bubble Sort	                   O(n)                  O(n²)	                    O(n²)                Tiny Dataset
+Selection Sort	               O(n²)	              O(n²)                      	O(n²)                Small Dataset
+Insertion Sort	               O(n)	                O(n²)	                       O(n²)              small datasets
+Merge Sort                 	O(n log n)	          O(n log n)	                 O(n log n)           Large Dataset
+Quick Sort	               O(n log n)	            O(n log n)	                   O(n²)               fast Soring
+Heap Sort	O                  (n log n)	            O(n log n)               	O(n log n)
+

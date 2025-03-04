@@ -1,81 +1,64 @@
 // Selection Sort is a simple comparison-based sorting algorithm that works by repeatedly selecting the smallest (or largest) element from the unsorted portion of the array and swapping it with the first unsorted element. This process continues until the entire array is sorted.
 
-function SelectionSort(arr){
-  for(i=0; i<=arr.length-1; i++){
-    let minIndex = i
-
-    for(let j =i+1; j<arr.length; j++)
+function Selection(arr){
+  let n =arr.length;
+  for(let i =0 ; i<n; i++)
+  {
+    let min = i;
+    for(let j = i+1; j < n ; j++)
     {
-      if (arr[j]<arr[minIndex]){
-        minIndex = j;
-      }
-    }
-    if (minIndex !==i){
-      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+      if(arr[j] < arr[min])
+      {
+        min = j;
     }
   }
-  return arr;
-
-}
-
-console.log(SelectionSort([64, 25, 12, 22, 11]));
-
-
-function SelectionSortDsc(arr){
-  for(i=0; i<=arr.length-1; i++){
-    let maxIndex = i
-
-    for(let j =i+1; j<arr.length; j++)
-    {
-      if (arr[j]>arr[maxIndex]){
-        maxIndex = j;
-      }
-    }
-    if (maxIndex !==i){
-      [arr[i], arr[maxIndex]] = [arr[maxIndex], arr[i]];
-    }
+    [arr[min] , arr[i]] = [arr[i] , arr[min]]
   }
-  return arr;
-
+  return arr
 }
 
-console.log(SelectionSortDsc([64, 25, 12, 22, 11]));
+console.log(Selection([11,7,45,31,26]))
+
+
 
 //Bubble Sort :- Bubble sort is a basic algorithm that arranges a list of data in order by comparing adjacent elements and swapping them if they are out of order.
 
-function BubbleSort(arr){
-  for(let i=0;i<=arr.length-1;i++){
-    let swap=false 
-    for(j=0; j<=arr.length-1; j++){
-      if(arr[j]>arr[j+1]){
-        [arr[j], arr[j+1]]= [arr[j+1], arr[j]];
-        swap = true;
+function bubble(arr){
+  let n = arr.length
+  for(let i =0 ; i<n ; i++)
+  {
+    for( let j =0 ; j<n ; j++)
+    {
+      if(arr[j] > arr[j+1])
+      {
+        [arr[j] , arr[j+1]] = [arr[j+1] , arr[j]]
       }
     }
-    if (swap == false)
-      break;
   }
   return arr;
 }
 
-console.log(BubbleSort([10,40,20,50,7]));
+console.log(bubble([24,19,60,25,10]))      // 10,19,24,25,60
 
 
-function BubbleSortDes(arr){
-  for(let i=0;i<=arr.length-1;i++){
-    let swap=false 
-    for(j=0; j<=arr.length-1-i; j++){
-      if(arr[j]<arr[j+1]){
-        [arr[j], arr[j+1]]= [arr[j+1], arr[j]];
-        swap = true;
-      }
+
+
+//Inseration Sort :-Builds the sorted array one item at a time by inserting elements in the correct position
+
+function Inseration(arr){
+  if(arr.length<=1) return arr;
+  for(let i = 1; i<arr.length ; i++)
+  {
+    let key = arr[i];
+    let j = i-1
+    while( arr[j] > 0  && arr[j] > key)
+    {
+      arr[j+1] = arr[j];
+      j--
     }
-    if (swap == false)
-      break;
+    arr[j+1] = key;
   }
   return arr;
 }
 
-console.log(BubbleSortDes([10,40,20,50,7]));
-
-//Inseration Sort :-
+console.log(Inseration([22,6,11,51,21,31]));
