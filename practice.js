@@ -1,19 +1,11 @@
-function runLength(str){
-  let compressedStr = ""
-  let count = 1;
-  for(let i =0; i<str.length; i++)
+function max(arr){
+  const frequency = {}
+  for(let i = 0; i<arr.length ; i++ )
   {
-    if(str[i] == str[i+1])
-    {
-      count++
-    }
-    else 
-    {
-      compressedStr += str[i] + count;
-      count = 1;
-    }
+    frequency[arr[i]] = (frequency[arr[i]] || 0) + 1;
   }
-return compressedStr
+  return frequency;
+
 }
 
-console.log(runLength("aaarrrrttttt"))
+console.log(max([1,2,1,3,4,2,4,4,5]))
