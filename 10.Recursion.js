@@ -2,6 +2,8 @@
 // Base Case: A condition that stops the recursion to prevent an infinite loop.
 // Recursive Case: The function calls itself with modified arguments, moving closer to the base case.
 
+// Backtracking is an algorithmic technique used for solving recursive problems by trying out all possible options and discarding those that fail to satisfy the given constraints. It is often used in problems involving decision-making, searching, and constraint satisfaction.
+
 
 
 function displayNumber(n){
