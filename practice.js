@@ -1,17 +1,8 @@
-//Tower of honoi 
+function sum(arr){
 
-function tower(n, source , destination , aux){
-  if(n===1){
-    console.log(`move disk 1 from ${source} to ${destination}`)
-    return ;
-  }
+  if(arr.length === 1) return arr[0];
 
-  tower(n-1 , source , destination , aux)
-
-  console.log(`move disk ${n} from ${source} to ${destination}`)
-
-  tower(n-1 , aux, source , destination)
-    
+    return Math.max(arr[0] , sum(arr.slice(1)))
 }
 
-tower(3, "A" , "B" , "C")
+console.log(sum([1,2,3,4,5]))
