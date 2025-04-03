@@ -15,3 +15,25 @@ function tower(n, source , destination , aux){
 }
 
 tower(3, "A" , "B" , "C")
+
+// find All Subset using Recursion
+
+function findSubset(nums, index = 0, current=[], result=[]){
+  if(index === nums.length){
+    result.push([...current])
+    return;
+  }
+
+  current.push(nums[index])
+  findSubset(nums, index+1, current, result)
+
+  current.pop();
+  findSubset(nums, index+1, current, result)
+
+  return result;
+}
+
+console.log(findSubset([1, 2, 3]));
+
+
+
