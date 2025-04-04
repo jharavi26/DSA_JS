@@ -36,4 +36,55 @@ function findSubset(nums, index = 0, current=[], result=[]){
 console.log(findSubset([1, 2, 3]));
 
 
+//Find all Permutations 
+
+function permutation(nums, start=0, result=[]){
+  if(start === nums.length){
+    result.push([...nums])
+    return 
+  }
+
+  for(let i=start; i<nums.length; i++){
+    [nums[start] , nums[i]] = [nums[i], nums[start]];
+    permutation(nums, start+1, result);
+    [nums[start], nums[i]] = [nums[i], nums[start]]
+
+  }
+
+  return result;
+
+}
+
+console.log(permutation([1,2,3]));
+
+
+//Combinational Sum 
+
+function sum(arr, target){
+  let result = [];
+
+  function search(start, combination, sum)
+  {
+    if(sum === target){
+      result.push([...combination])
+      return 
+    }
+
+    if(sum>target) return ;
+
+    for(let i=start ; i<arr.length ; i++){
+      combination.push(arr[i]);
+    search(i, combination , sum+arr[i]);
+    combination.pop();
+
+    }
+  }
+
+  search(0, [], 0)
+  return result;
+}
+
+console.log(sum([2,3,4,5], 6))
+
+
 
