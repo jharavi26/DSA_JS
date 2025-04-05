@@ -59,7 +59,7 @@ function check(str)
   let count = 0
   for(let i = 0 ; i < str.length; i++)
   {
-    if(arr.includes(str[i])){
+    if(arr.includes(str[i].toLowerCase())){
       count++
     }
   
@@ -188,6 +188,8 @@ function last(str){
 
 console.log(last("artjha"))
 
+
+
 function find(str){
   let words = str.split(" ");
   let longerWord = "";
@@ -308,6 +310,8 @@ return compressedStr
 }
 
 console.log(runLength("aaaabbbbbbbbcccrrrtttt"))
+
+
 
 
 

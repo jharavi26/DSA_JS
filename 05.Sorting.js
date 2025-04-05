@@ -25,9 +25,9 @@ console.log(Selection([11,7,45,31,26]))
 
 function bubble(arr){
   let n = arr.length
-  for(let i =0 ; i<n ; i++)
+  for(let i =0 ; i<n-1 ; i++)
   {
-    for( let j =0 ; j<n ; j++)
+    for( let j =0 ; j<n-i-1 ; j++)
     {
       if(arr[j] > arr[j+1])
       {

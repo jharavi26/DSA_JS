@@ -19,29 +19,6 @@ console.log(Two([1,2,3,4,5,6,],9));  //[3,4]
 
 
 
-//Sort an array of 0s, 1s and 2s
-
-function sortArray(arr){
-  let mid=0, low=0, high=arr.length-1;
-  while(mid<=high){
-    if(arr[mid]===0){
-      [arr[low], arr[mid]] = [arr[mid], arr[low]];
-      low++;
-      mid++;
-    }
-    else if(arr[mid]===1){
-      mid++;
-    }
-    else {
-      [arr[mid],arr[high]] = [arr[high],arr[mid]];
-      high--;
-      }
-    }
-    return arr;
-
-  }
-  console.log(sortArray([0, 1, 2, 0, 1, 2]));
-
   //Majourity of Element :-
 
   function FindMajorElement(num){
@@ -65,8 +42,8 @@ function sortArray(arr){
   //Kadane's Maximum Subarray Algorithm 
 
   function kadane(num){
-    let globalSum = 0;
-    let currentSum = 0;
+    let globalSum = num[0];
+    let currentSum = num[0];
   
     for(let i = 1 ; i<num.length ; i++){
       currentSum = Math.max(num[i] , currentSum + num[i] );
@@ -80,8 +57,43 @@ function sortArray(arr){
   
   console.log(kadane([2,3,4,5,6]));  //20
 
- 
-   
+
+  //Product of Subarray
+
+  function product(arr){
+    let maxProd = arr[0];
+    let minProd = arr[0];
+    let result  = arr[0];
+    
+      for(let i = 1; i<arr.length ; i++){
+        let temp = maxProd;
+        maxProd = Math.max(arr[i] , maxProd*arr[i], minProd*arr[i]);
+        minProd = Math.min(arr[i] , temp*arr[i], minProd*arr[i]);
+
+        result = Math.max(result, maxProd);
+    }
+
+    return result;
+}
+
+console.log(product([-2,3,-4]))
+
+//sum of zero of subarray 
+
+function sumofZero(arr){
+  let sum =0;
+  const set = new Set();
+
+  for(let i=0; i<arr.length; i++){
+      sum += arr[i] ;
+  if(sum === 0 || set.has(sum)) return true;
+  set.add(sum);
+  }
+  return false;
+}
+
+console.log(sumofZero([1,3,4-7]));
+
 
     //Buy & Sell :-It involves finding the maximum profit you can achieve from buying and selling a stock given its price over a series of days.
 
