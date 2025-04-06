@@ -87,4 +87,29 @@ function sum(arr, target){
 console.log(sum([2,3,4,5], 6))
 
 
+//Generate Paraenthesis :- 
+
+function GenerateParenthesis(n){
+  let result = []
+  
+  function backtracking(curr, open , close){
+    if(curr.length === n*2){
+      result.push(curr);
+    return 
+    }
+
+    if(open < n){
+      backtracking(curr + "(" , open+1 , close)
+    }
+
+    if(close < n){
+      backtracking(curr + ")" , open, close+1)
+    }  
+    }
+  backtracking("" , 0 , 0);
+  return result;
+}
+
+console.log(GenerateParenthesis(2));
+
 
