@@ -140,5 +140,39 @@ root.right.right = new Node(12);
 console.log(checkBST(root));
 
 
+//Least Common commonAnchestor
+
+class TreeNode {
+  constructor(value){
+    this.value = value;
+    this.left = this.right = null;
+  }
+}
+  function commonAnchestor(root, p, q){
+  if(root === null || p === root || q === root) return root;
+
+    const left = commonAnchestor(root.left, p, q);
+    const right = commonAnchestor(root.right, p,q);
+
+    if(left && right) return root;
+    return left ? left : right;
+
+  }
+
+const root = new TreeNode(3);
+root.left = new TreeNode(5);
+root.right = new TreeNode(1);
+root.left.left = new TreeNode(6);
+root.left.right = new TreeNode(2);
+root.right.left = new TreeNode(0);
+root.right.right = new TreeNode(8);
+root.left.right.left = new TreeNode(7);
+root.left.right.right = new TreeNode(4);
+
+const p = root.left.left;  // 6
+const q = root.left.right.right;  // 4
+
+console.log(commonAnchestor(root, p, q).value); // ➜ 5
+
 
 
