@@ -71,3 +71,79 @@ a.addEdge('B','D');
 a.addEdge('C','D');
 
 a.printGraph();
+
+
+//Breadth Firtst Search 
+
+const graph = {
+  A: ["B", "C"],
+  B: ["D", "E"],
+  C: ["F"],
+  D: [],
+  E: ["F"],
+  F: []
+};
+
+function BFS(graph, start){
+  const queue = [start];
+  const visited = new Set();
+
+  while(queue.length > 0){
+    const node = queue.shift();
+  
+  if(!visited.has(node)){
+    console.log(node);
+    visited.add(node);
+  
+  for(let neighbours of graph[node]){
+    queue.push(neighbours);
+  }
+}
+}
+}
+
+BFS(graph,"A")
+
+//  Depth First Search 
+
+const graph = {
+  A: ["B", "C"],
+  B: ["D", "E"],
+  C: ["F"],
+  D: [],
+  E: ["F"],
+  F: []
+};
+
+function DFS(graph, start){
+  const stack = [start];
+  const visited = new Set();
+
+  while(stack.length > 0){
+    const node = stack.pop();
+
+    if(!visited.has(node)){
+      console.log(node);
+      visited.add(node);
+
+    for(let i = graph[node].length-1; i>=0; i--){
+      stack.push(graph[node][i]);
+    }
+    }
+  }
+
+}
+
+DFS(graph , "A")
+
+// using Recursive Method
+
+function dfs(graph, start, visited = new Set()){
+  console.log(start);
+  visited.add(start);
+  for(let neighbours of graph[start]){
+    if(!visited.has(neighbours)){
+      dfs(graph, neighbours, visited)
+    }
+  }
+}
