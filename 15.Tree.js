@@ -5,7 +5,7 @@
 // Breadth-First Search is also known as Level Order Traversal. This algorithm starts with the root node and then visits all nodes level by level from left to right. we used queue to implement .
 
 // In DFS Algorithm, we start with the root node and traverse the tree in depth until we find the node with no children and then backtrack it. we used stack to implement .
-//Tree : [1,2,3,4,5 , 6, 7]
+//Tree : [1,2,3,4,5,6,7]
 // In-Order (Left-Root-Right) :- 4,2,5,1,6,3,7
 // Pre-Order (Root-Left-Right) :-1,2,4,5,3,6,7
 // Post-Order (Left-Right-Root) :4,5,2,6,7,3,1
@@ -173,6 +173,57 @@ const p = root.left.left;  // 6
 const q = root.left.right.right;  // 4
 
 console.log(commonAnchestor(root, p, q).value); // ➜ 5
+
+//Convert a Binary tree to its a mirror 
+
+function MirrorBT(root){
+  if(root === null) return null;
+
+  let temp = root.left;
+  root.left = root.right;
+  root.right = temp;
+
+  MirrorBT(root.left);
+  MirrorBT(root.right);
+
+  return root;
+}
+
+//Iterative Approach 
+
+class TreeNode {
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+function MirrorBT(root){
+  if(root === null) return null;
+
+  const queue = [root];
+
+  while(queue.length > 0){
+    const node = queue.shift();
+
+  [node.left, node.right] = [node.right, node.left];
+
+  if(queue.left) queue.push(queue.left);
+  if(queue.right) queue.push(queue.right)
+  }
+
+  return root;
+}
+
+const root = new TreeNode(1);
+root.left = new TreeNode(2);
+root.right = new TreeNode(3);
+root.left.left = new TreeNode(4);
+root.left.right = new TreeNode(5);
+
+console.log(MirrorBT(root));
+
 
 
 
