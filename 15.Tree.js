@@ -225,5 +225,81 @@ root.left.right = new TreeNode(5);
 console.log(MirrorBT(root));
 
 
+// Find the maximum path sum in a binary tree.
+
+class TreeNode{
+  constructor(value){
+    this.value = value;
+    this.left = this.right = null;
+  }
+}
+
+
+function Maxium(root){
+  let maximumSum = -Infinity
+
+  function dfs(node){
+    if(!node) return 0;
+
+    let leftGain = Math.max(0, dfs(node.left));
+    let rightGain = Math.max(0, dfs(node.right));
+    let currentPath = node.value + leftGain+rightGain
+
+    maximumSum = Math.max(currentPath, maximumSum);
+    return node.value + Math.max(leftGain, rightGain);
+
+  }
+  dfs(root);
+  return maximumSum
+}
+
+const root = new TreeNode(-10);
+root.left = new TreeNode(9);
+root.right = new TreeNode(20);
+root.right.left = new TreeNode(15);
+root.right.right = new TreeNode(7);
+
+console.log(Maxium(root));
+
+
+//Find Diameter of Tree :- we need to calculate the longest path between any two nodes in the tree. This path does not necessarily pass through the root.
+
+class TreeNode{
+  constructor(value){
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+function Diameter(root){
+  let diameter = 0;
+
+  function dfs(node){
+    if(!node) return 0;
+
+  let leftHeight = dfs(node.left);
+  let rightHeight = dfs(node.right);
+
+  diameter = Math.max(diameter , leftHeight + rightHeight);
+
+  return 1 + Math.max(leftHeight , rightHeight)
+
+  }
+  dfs(root);
+  return diameter;
+
+}
+
+const root = new TreeNode(3);
+root.left = new TreeNode(4);
+root.right = new TreeNode(5);
+root.left.left = new TreeNode(6)
+root.right.left = new TreeNode(7)
+root.right.left = new TreeNode(8)
+
+console.log(Diameter(root));
+
+
 
 
