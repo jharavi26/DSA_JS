@@ -34,7 +34,6 @@
 // Used for: detecting cycles, connectivity, topological sort.
 
 
-
 class Graph{
   constructor(){
     this.adjancencyList = {};
@@ -96,7 +95,9 @@ function BFS(graph, start){
     visited.add(node);
   
   for(let neighbours of graph[node]){
+    if(!visited.has(neighbours)){
     queue.push(neighbours);
+    }
   }
 }
 }
@@ -127,11 +128,13 @@ function DFS(graph, start){
       visited.add(node);
 
     for(let i = graph[node].length-1; i>=0; i--){
-      stack.push(graph[node][i]);
+      const neighbor = graph[node][i];
+      if (!visited.has(neighbor)) {
+        stack.push(graph[node][i]);
     }
     }
   }
-
+  }
 }
 
 DFS(graph , "A")
