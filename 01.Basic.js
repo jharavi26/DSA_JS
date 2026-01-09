@@ -210,6 +210,26 @@ console.log(lcm(12, 18)); // 36
 
 
 
+//Find out The GCD of Number :-
+
+function gcd(a, b){
+  if(b===0) return a;
+  return gcd(b, a%b)
+}
+console.log(gcd(4,12))
+
+//Find out the LCM of a nuumber
+
+function gcd(a, b){
+  if(b===0) return a;
+  return gcd(b, a%b)
+}
+function lcm(a, b){
+  return (a*b) / gcd(a,b)
+}
+
+console.log(lcm(6,12))
+
 
 
 

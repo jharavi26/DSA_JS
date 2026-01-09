@@ -2,6 +2,8 @@
 // Base Case: A condition that stops the recursion to prevent an infinite loop.
 // Recursive Case: The function calls itself with modified arguments, moving closer to the base case.
 
+// Backtracking is an algorithmic technique used for solving recursive problems by trying out all possible options and discarding those that fail to satisfy the given constraints. It is often used in problems involving decision-making, searching, and constraint satisfaction.
+
 
 
 function displayNumber(n){
@@ -145,6 +147,34 @@ function fibonacci(n) {
 
 // Example usage
 console.log(fibonacci(6)); // Output 8
+
+
+// Sum of Array Element 
+
+function sum(arr){
+  if(arr.length  === 0) return 0;
+
+    return arr[0] + sum(arr.slice(1));
+}
+
+console.log(sum([1,2,3,4]))
+
+//Largest Element in Array 
+
+function sum(arr){
+
+  if(arr.length === 1) return arr[0];
+
+    return Math.max(arr[0] , sum(arr.slice(1)))
+}
+
+console.log(sum([1,2,3,4,5]))
+
+
+
+
+
+
 
 
 

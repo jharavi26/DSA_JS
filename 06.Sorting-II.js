@@ -45,6 +45,7 @@ function mergeSort(arr) {
   return merge(sortedLeft, sortedRight);
 }
 
+
 function merge(left, right) {
   let result = [];
   let i = 0; // Pointer for the left array

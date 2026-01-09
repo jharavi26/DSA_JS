@@ -87,21 +87,18 @@ console.log(CheckArray([1,2,3,4,5]));  // O(n)
 
 //Remove Duplicate Element from Array 
 
-function reverse (arr){
-    const obj = {};
-    const result  = []
-    for(let i =0; i<arr.length; i++)
-    {
-      if(!obj[arr[i]])
-      {
-      obj[arr[i]] = true;
-    result.push(arr[i])
-      }
+function status(arr){
+    let unique = [];
+    for(let i=0; i<arr.length; i++){
+        if(!unique.includes(arr[i])){
+            unique.push(arr[i]);
+        }
     }
-    return result;
-  
-  }
-  console.log(reverse([1,2,3,4,5,3,4,5,]));  // [1,2,3,4,5]
+    return unique;;
+}
+
+console.log(status([32,46,66,78,89, 46,32])) // [1,2,3,4,5]
+
 
   //Find the Frequency of Each Element in an Array 
 
@@ -117,6 +114,19 @@ function reverse (arr){
   }
   
   console.log(frequency([1,2,3,4,5,3,4,5,6]));
+
+
+  // Alternate Approach
+
+  function Value(arr){
+    const count = {};
+    for(let char of arr){
+        count[char] = (count[char] || 0 )+1;
+    }
+    return count;
+}
+
+console.log(Value([11,22,33,11,33,22,55,44]))
 
   // Find the Index of a Target Element in an Array
 
