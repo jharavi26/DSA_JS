@@ -1,0 +1,83 @@
+Basic Question Concept 
+
+1.Find Out Reverse of A Number :-
+  first find out remainder using divide by 10 & add into new variable rev.
+  sum = sum*10+remainder value
+  find out Quotient using number divided by 10.
+
+2.  Sum of Digits :-
+    first find out remainder & then add into sum variable.
+    find the quotient using number divided by 10.
+
+3. Count of Digit :- 
+   let assigan a variable & add value by 1 until we get quotient 0.
+
+4. Paindrome 
+  find out reverse & check with original value if equal then pass true value.
+
+5. Factorial of the number
+   take a variable fact & multiple with all number & return the value.
+
+6. Prime of a Number 
+  if number is one flag = false and when 2 return true.
+  number divided by every number which is less than by given number is remainder =0 then not a prime number.
+
+7. Find out The Missing Number :-
+   first calculate the actual sum substract from getting sum.
+
+8. Find ArmStrong Number 
+  first calculate length of a number , find out the remainder value & multiply with length of number & find out sum .
+  if sum = orginal value then armstrong number.
+
+9. Find the GCD :-
+   using encuildram formula = (b, a%b)
+
+10. LCM 
+    (a*b)/ gcd(a,b)
+
+11.Perfect square Number 
+
+Recursion : base class when function stop executing.
+
+Array :-
+
+1. Find out Duplicate element in array 
+   take a object & array , check if a element is present in object & return else push into array .
+
+2.Find the frequency of element in array .
+  take a object & store frequencty of element .
+
+3.Move all Zeros to End :-
+  check if number is not zero then swap with right one.
+
+4.Left/right rotate in one position 
+  remove first element & add into last element of array.
+
+5.Merge Two Sorted Array in one Array 
+  check the length of array & compare one array with another one & store minimum value in array.
+
+6.Union of the Two Array 
+  take a new array & add value in to it if a elememt is not present .
+
+7.Majority Element :
+  if occurence of element is greather than the length of array divided by 2.
+
+8. Kadane Algorithm :-
+   initial currentSum, globalSum , in a for loop check current sum  = currentsum+arr[i];
+
+9.Two Sum Problem :-
+  take a map , iterate through loop in array & find out compliment . 
+  check if compliemnt recieve then return .
+
+10.
+
+
+
+
+
+
+
+ 
+
+
+

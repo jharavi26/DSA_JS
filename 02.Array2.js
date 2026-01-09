@@ -1,20 +1,15 @@
 
 
 function twoSum(arr, target) {
-  const hashMap = new Map(); // To store numbers and their indices
+  const hashMap = new Map();                           // To store numbers and their indices
 
   for (let i = 0; i < arr.length; i++) {
-    const num = arr[i];  // Current number
-    const complement = target - num;  // Complement to the target sum
-
-    // Check if the complement exists in the hash map
-    if (hashMap.has(complement)) {
-      // Return the indices of the complement and the current number
-      return [hashMap.get(complement), i];
+    const num = arr[i];                                // Current number
+    const complement = target - num;                  // Complement to the target sum                                         
+    if (hashMap.has(complement)) {                    // Check if the complement exists in the hash map  
+      return [hashMap.get(complement), i];            // Return the indices of the complement and the current number
     }
-
-    // Store the current number and its index in the hash map
-    hashMap.set(num, i);
+    hashMap.set(num, i);                              // Store the current number and its index in the hash map
   }
 
   return []; // Return empty if no pair is found
@@ -38,7 +33,6 @@ function sortArray(arr){
     else {
       [arr[mid],arr[high]] = [arr[high],arr[mid]];
       high--;
-
       }
     }
     return arr;
@@ -59,8 +53,7 @@ function sortArray(arr){
     if(Frequency[nums]>MajorElement){
       return nums;
     }
-   
-
+  
     }
     return -1;
   }

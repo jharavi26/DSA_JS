@@ -37,6 +37,28 @@ function SecondLarEle(arr){
 const Arr = [9,7,4,5,6];
 console.log(SecondLarEle(Arr));   // Time Complexity O(n)
 
+
+// Remove the element at specific value
+
+function remove(arr , value){
+  return arr.filter((item)=> item !== value)
+}
+console.log(remove([1,2,3,4,5,6], 4))
+
+function remove(arr, value){
+  let result = []
+  for(let i =0; i<arr.length; i++){
+    if(arr[i] !== value){
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
+
+console.log(remove([1,2,3,4,5,6], 3));
+
+
+
 //Check The Array is Sorted 
 
 function CheckArray(arr){

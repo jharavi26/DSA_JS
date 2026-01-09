@@ -39,17 +39,7 @@ return true;
 }
 console.log(Palindrome("madam"));
 
-//using Recursion 
-function Palindome(str, left=0, right=str.length-1){
-  if(left>=right){
-    return true;
-  }
-if(str[left].toLowerCase() !== str[right].toLowerCase()){
-  return false;
-}
-return Palindome(str, left+1, right-1)
-}
-console.log(Palindome("racecar"));
+
 
 //Count the Number of Vowels
 

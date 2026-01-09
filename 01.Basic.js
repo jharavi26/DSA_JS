@@ -36,6 +36,7 @@ function sumofDigits(n){
 }
 console.log(sumofDigits(646));
 
+
 // Count number of Digits 
 
 function countDigits(s){
@@ -78,6 +79,23 @@ function isPalindromeNumber(num) {
 }
 console.log(isPalindromeNumber(12321));
 
+//str = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+// Two Pointer Approach 
+
+function Palindrome(str){
+    let left = 0;
+    let right = str.length-1
+    while(left < right){
+        if(str[left] !== str[right]){
+            return false;
+        } left++;
+        right--;
+    } return true;
+}
+
+console.log(Palindrome("Madam"))
+
 //Fibonnachi Number :- 
 
 function fibonacci(num) {
@@ -104,8 +122,7 @@ console.log("Fibonacci(5): " + fibonacci(5));
 
 function factorial(num){
   let res=1;
-  if(num===0)
-    return 1;
+  if(num===0) return 1;
   for(let i=2; i<=num; i++){
     res = res*i;
   }
@@ -115,25 +132,26 @@ function factorial(num){
 console.log(factorial(6));   //720
 
 //Prime Number 
-function CheckPrime(n){
-  let i, flag = true;
-  for(i=2; i<=n-1; i++)
-  {
-    if(n % i==0){
-      flag=false;
-      break;
+
+function isPrime(n) {
+    if (n <= 1) return false;
+    if (n === 2) return true;
+    if (n % 2 === 0) return false;
+
+    for (let i = 3; i <= Math.sqrt(n); i += 2) {
+        if (n % i === 0) {
+            return false;
+        }
     }
-   }
-  if(flag==true)
-  {
-    console.log(n + " Number is Prime");
-    return;
-  }
-  else{
-    console.log(n + " Number is not Prime");
-  }
- }
-CheckPrime(4);
+    return true;
+}
+
+for (let i = 1; i <= 100; i++) {
+    if (isPrime(i)) {
+        console.log(i);
+    }
+}
+
 
 // Missing Number is 
 
@@ -153,23 +171,44 @@ console.log(Missing([1,2,4,5]));
 
 // find Armstrong Number 
  
-function armstrong(n){
-  let num = n.toString().length;
-  let sum = 0 ; 
-  temp = n;
-
-  while(temp>0)
-  {
-    let digit = temp % 10;
-    sum += Math.pow(digit , num)
-    temp = Math.floor(temp/10);
-  }
-
-  return sum === n;
-
+function Armstrong(num){
+    let digits = num.toString().length;               // to find out number of digits
+    let sum = 0;
+    let temp = num;
+    while(temp > 0){
+        let digit = temp % 10;
+        sum = sum + digit ** digits;
+        temp = Math.floor(temp / 10);
+    } return sum == num;
 }
 
-console.log(armstrong(153));
+console.log(Armstrong(151))           // false
+console.log(Armstrong(153))           // true
+
+ // Greatest Common Divisor  :- The largest number that divides both numbers exactly (no remainder).
+ 
+ function GCD(a, b){
+    while(b !== 0){
+        let remainder = a % b;
+        a = b;
+        b = remainder;
+    }
+    return a;
+}
+
+console.log(GCD(16, 64));
+
+// LCM(a,b)×GCD(a,b)=a×b
+
+//Least Common Multiple :- The smallest number that is divisible by both numbers.
+
+function lcm(a, b) {
+    return (a * b) / gcd(a, b);
+}
+
+console.log(lcm(12, 18)); // 36
+
+
 
 
 
