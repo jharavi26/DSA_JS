@@ -45,6 +45,7 @@ function remove(arr , value){
 }
 console.log(remove([1,2,3,4,5,6], 4))
 
+// Using Extra Space
 function remove(arr, value){
   let result = []
   for(let i =0; i<arr.length; i++){
@@ -57,6 +58,19 @@ function remove(arr, value){
 
 console.log(remove([1,2,3,4,5,6], 3));
 
+//remove elements matching a target value from an array using in-place operations and minimal extra space.
+
+function Remove(arr, value){
+  let k = 0;
+  for(let i =0; i<arr.length; i++){
+    if(arr[i] != value){
+      arr[k] = arr[i];
+      k++;
+    }
+  } return k;
+}
+
+console.log(Remove([2,3,4,5,5,],4));            // 4 length of the New Array
 
 
 //Check The Array is Sorted 

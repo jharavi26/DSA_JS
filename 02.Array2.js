@@ -129,21 +129,22 @@ function sumofZero(arr){
 console.log(sumofZero([1,3,4-7]));
 
 
-    //Buy & Sell :-It involves finding the maximum profit you can achieve from buying and selling a stock given its price over a series of days.
+//Buy & Sell :-It involves finding the maximum profit you can achieve from buying and selling a stock given its price over a series of days.
 
-    function MaxProfit(price){
-      let maxProfit = 0;
-      let currentProfit = 0;
-      for(let i =1 ; i<price.length ; i++)
-      {
-        currentProfit = Math.max(0 , currentProfit + (price[i] - price[i-1]));
-          maxProfit = Math.max(maxProfit , currentProfit)
-      }
-      return maxProfit;
-    }
-     
-    const price = [7,1,5,4,6,3];
-    console.log(`Maxprofit is : `, MaxProfit(price));  // 6-1 = 5
+function BestTime(prices){
+let MinPrice = Infinity;
+let MaxProfit = 0;
+for(let price of prices){
+  if(price < MinPrice){
+    MinPrice = price;
+  }
+    MaxProfit = Math.max(MaxProfit, price - MinPrice);
+
+  }
+  return MaxProfit;
+}
+
+console.log(BestTime([1,2,7,4]));                       // 6
  
 
 

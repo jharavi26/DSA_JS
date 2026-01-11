@@ -25,7 +25,6 @@ console.log(reverseString("hello"));
 //Palindrome in String 
 
 function Palindrome(str){
-
   let left =0;
   let right = str.length-1;
   while(left<right){
@@ -38,8 +37,6 @@ function Palindrome(str){
 return true;
 }
 console.log(Palindrome("madam"));
-
-
 
 //Count the Number of Vowels
 
@@ -59,6 +56,49 @@ function check(str)
 }
 
 console.log(check("ravikumarart"));   //5 
+
+//Find Words Containing Character
+
+function wordsWithChar(words, target) {
+  let result = [];
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].includes(target)) {
+      result.push(words[i]);
+    }
+  }
+  return result;
+}
+console.log(wordsWithChar(["Ravi", "is",  "my",  "Rajan", "Ravan"], "Ra"));
+
+//Jewels and Stones
+
+function numJewelStone(jewel, stone){
+  let count = 0;
+  for(let i =0; i<jewel.length; i++){
+    for(j = 0; j<stone.length; j++){
+      if(jewel[i] === stone[j]){
+        count++
+      }
+    }
+  } 
+  return count ;
+}
+
+console.log(numJewelStone("aA", "aaaaAAAbbb"))             // Time :- n * madam
+
+//Using HashMap
+
+function numJewelStone(jewels, stones){
+  let count = 0;
+  let jewelSet = new Set(jewels);
+  for(let stone of stones){
+    if(jewelSet.has(stone)){
+      count++
+    }
+  }
+  return count ;
+}
+console.log(numJewelStone("aA", "aaaaAAAbbb"))                 // Time = n + m
 
 // Remove Space Between Number
 
@@ -96,6 +136,7 @@ function check(str)
   return null;
   }
 console.log(check("ravikumarart"));  
+
 
 // Count of frequency of each Character in String
 
@@ -156,6 +197,21 @@ function string(str){
   return s = s[s.length-1].length
 }
 console.log(string("Good morning art"))   //3
+
+// Using One Loop More Optimize Solution 
+
+function lastWord(str){
+    let count = 0;
+    for(let i = str.length-1; i>0 ; i--)
+    {
+        if(str[i] === " "){
+            if(count > 0) break;
+        } else count++
+    }
+    return count
+}
+console.log(lastWord("Ravi is Art favouritravi"));
+
 
 //- Count and remove duplicate characters from a string.
 

@@ -21,7 +21,6 @@ displayNumber(0);
 
 function displayName(i,n){
   if(i>n){
-    
     return ;
   }
   console.log("Ravikumar");

@@ -11,10 +11,11 @@ function Selection(arr){
       {
         min = j;
     }
-  }
+  } if(min !== i){
     [arr[min] , arr[i]] = [arr[i] , arr[min]]
   }
-  return arr
+  }
+  return arr;
 }
 
 console.log(Selection([11,7,45,31,26]))
@@ -51,7 +52,7 @@ function Inseration(arr){
   {
     let key = arr[i];
     let j = i-1
-    while( arr[j] > 0  && arr[j] > key)
+    while( arr[j] >= 0  && arr[j] > key)
     {
       arr[j+1] = arr[j];
       j--
