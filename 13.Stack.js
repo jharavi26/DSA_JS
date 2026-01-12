@@ -51,14 +51,56 @@ function balance(str){
       stack.push(char)
     }
     else if(char === ")" || char === "}" || char === "]"){
-      if(stack.length === 0   || stack.pop() !== brackets[char]){
+      if(stack.length === 0 || stack.pop() !== brackets[char]){
         return false
       }
     }
   }
-  return stack.length ===0;
+  return stack.length === 0;
 }
 console.log(balance("([{}])"))
+
+// Min Stack 
+
+class minStack{
+    constructor(){
+        this.stack = [];
+        this.minstack = [];
+    }
+    push(value){
+        this.stack.push(value)
+            if(this.minstack.length === 0 || value <= this.minstack[this.minstack.length-1]){
+                this.minstack.push(value)
+        }
+    }
+    pop(){
+        if(this.stack.length === 0) return "Stack is Empty"
+        let remove = this.stack.pop();
+        if(remove === this.minstack[this.minstack.length-1]){
+            this.minstack.pop()
+        } return remove
+    }
+    top(){
+        if(this.stack.length === 0) return 
+        return this.stack[this.stack.length-1]
+    }
+    getMin(){
+        if(this.minstack.length === 0) return ;
+        return this.minstack[this.minstack.length-1];
+    }
+}
+
+const stock = new minStack();
+stock.push(5)
+stock.push(3)
+stock.push(7)
+stock.pop();
+stock.push(-24);
+stock.pop();
+stock.getMin();
+
+console.log(stock.getMin());
+console.log(stock.stack)
 
 
 //Postfix Operation :- Take two operand & perform operation 
@@ -96,7 +138,7 @@ function evaluate(tokens){
   return stack.pop();
 }
 
-console.log(evaluate(["1", "2" , "*" , "3" , "+"]))
+console.log(evaluate(["1", "2" , "*" , "3" , "+"]))  // 
 
 //Next Greather Element 
 
