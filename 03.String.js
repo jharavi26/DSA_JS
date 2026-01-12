@@ -98,7 +98,19 @@ function numJewelStone(jewels, stones){
   }
   return count ;
 }
-console.log(numJewelStone("aA", "aaaaAAAbbb"))                 // Time = n + m
+console.log(numJewelStone("aA", "aaaaAAAbbb"))             // Time = n + m
+
+// Largest odd Number Substring in Striong
+
+function FindStr(str){
+    for(let i = str.length-1; i > 0; i--){
+        if(str[i] % 2 !== 0){
+            return str.slice(0, i+1);
+        }
+    } return " "
+}
+
+console.log(FindStr("3456"))                               // 345
 
 // Remove Space Between Number
 
@@ -119,8 +131,7 @@ console.log(space("eavi art kumr")) //eaviartkumr
 
 //Frequency of the First non-repeating Character 
 
-function check(str)
-{
+function check(str){
  const frequency = {}
   for(let i = 0 ; i < str.length; i++)
   {
@@ -155,7 +166,7 @@ console.log(space("ravikumarart"))
 
 function space(str1, str2){
   if(str1.length !== str2.length) return false;
-  count = {}
+  const count = {}
   for(let char of str1)
   {
     count[char] = (count[char]||0)+1
@@ -212,6 +223,63 @@ function lastWord(str){
 }
 console.log(lastWord("Ravi is Art favouritravi"));
 
+// Isomorphic Strings
+
+function isIsomorphic(s, t){
+    if(s.length !== t.length ) return false;
+    let mapSt = {};
+    let mapTs = {};
+    for(let i =0; i<s.length; i++){
+        const charS = s[i];
+        const charT = t[i];
+        if(mapSt[charS] && mapSt[charS] !== charT){
+            return false;
+        } 
+         if(mapTs[charT] && mapTs[charT] !== charS){
+            return false;
+        } 
+        
+        mapSt[charS] = charT;                               // used Object for Mapping
+        mapTs[charT] = charS;
+        }
+        return true;
+}
+
+console.log(isIsomorphic("egg", "add"));    // true
+console.log(isIsomorphic("foo", "bar"));    // false
+console.log(isIsomorphic("paper", "title"));// true
+console.log(isIsomorphic("ab", "aa"));
+
+// Find Group of Anagram
+
+function FindAnagram(strs){
+    const map = {} ;
+        for(let words of strs){
+            const key = words.split("").sort().join("")
+        if(!map[key]){
+            map[key] = [];
+        }
+        map[key].push(words);
+    }
+    return Object.values(map);
+}
+
+console.log(FindAnagram(["eat", "tea", "tan", "ate", "nat", "bat"]));
+
+//Find out Longest Common Prefix 
+
+function LongestCommonPre(str){
+    if(str.length == 0 ) return "";
+    let prefix = str[0];
+    for( i =1; i < str.length ; i++){
+        while(!str[i].startsWith(prefix)){
+            prefix = prefix.slice(0, -1);
+            if(prefix === "") return ""
+        }
+    } return prefix;
+}
+console.log(LongestCommonPre(["flower", "flow", "flight"]));       // fl
+
 
 //- Count and remove duplicate characters from a string.
 
@@ -234,7 +302,7 @@ function last(str){
 
 console.log(last("artjha"))
 
-
+// Find the longest word in string.
 
 function find(str){
   let words = str.split(" ");
