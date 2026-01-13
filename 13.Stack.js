@@ -51,7 +51,7 @@ function balance(str){
       stack.push(char)
     }
     else if(char === ")" || char === "}" || char === "]"){
-      if(stack.length === 0 || stack.pop() !== brackets[char]){
+      if(stack.length === 0 || stack.pop() !== brackets[char]){              // last pop elment have matching bracket or not.
         return false
       }
     }
@@ -162,7 +162,49 @@ function gretherElement(arr){
   return result;
 }
 
-console.log(gretherElement([4,5,2,10]))
+console.log(gretherElement([4,5,2,10]));
+
+// Remove outermost Paraanthesis using Stack
+
+function removeOuterParenthesis(str){
+  let result = "";
+  const stack = [];
+  for(let char of str){
+    if(char === "("){
+      if(stack.length > 0){
+        result  += char;
+      } stack.push(char)
+    } else {
+      stack.pop();
+      if(stack.length > 0){
+        result += char;
+      }
+    }
+  }  return result; 
+
+}
+
+console.log(removeOuterParenthesis("(()())(())"));
+
+// Optimized without Stack
+
+function removeOuterParentheses(s) {
+  let depth = 0;
+  let result = "";
+
+  for (let char of s) {
+    if (char === '(') {
+      if (depth > 0) result += char;
+      depth++;
+    } else {
+      depth--;
+      if (depth > 0) result += char;
+    }
+  }
+
+  return result;
+}
+
 
 //Implement using Stack using two Queue
 

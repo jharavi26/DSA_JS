@@ -1,4 +1,3 @@
-
 //Reverse a String :-
 
 function reversedString(str){
@@ -223,7 +222,7 @@ function lastWord(str){
 }
 console.log(lastWord("Ravi is Art favouritravi"));
 
-// Isomorphic Strings
+// Isomorphic Strings :- one to one mapping 
 
 function isIsomorphic(s, t){
     if(s.length !== t.length ) return false;
